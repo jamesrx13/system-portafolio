@@ -16,4 +16,32 @@ const settinsAnimationsController = () => {
 
 }
 
-export { settinsAnimationsController }
+const dockAnimationsController = () => {
+    const dockItems = document.querySelectorAll('.dockItem');
+    dockItems.forEach((item, index) => {
+
+        item.addEventListener('mouseover', () => {
+            if (index > 0) {
+                dockItems[index - 1].style.transform = 'translateY(-7px)';
+            }
+            if (index < dockItems.length - 1) {
+                dockItems[index + 1].style.transform = 'translateY(-7px)';
+            }
+        });
+
+        item.addEventListener('mouseout', () => {
+            item.style.transform = '';
+            if (index > 0) {
+                dockItems[index - 1].style.transform = '';
+            }
+            if (index < dockItems.length - 1) {
+                dockItems[index + 1].style.transform = '';
+            }
+        });
+    });
+}
+
+export {
+    settinsAnimationsController,
+    dockAnimationsController
+}
