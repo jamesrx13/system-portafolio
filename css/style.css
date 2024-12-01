@@ -20,6 +20,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow: hidden;
 }
 /* /Body */
 
@@ -164,6 +165,58 @@ section.settings-content {
     }
 }
 /* /Settings */
+
+/* Desktop Apps */
+section.desktop-apps {
+    width: 100%;
+    height: calc(100vh - 130px);
+    padding: 1rem;
+    position: relative;
+
+    > .app {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        cursor: pointer;
+        position: absolute;
+
+        > img {
+            width: 50px;
+            height: 50px;
+            -webkit-user-drag: none;
+        }
+
+        > span {
+            max-width: 100px;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &.isSelected {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+    }
+
+    > .desktopMarker {
+        width: 0;
+        height: 0;
+        background-color: rgba(0, 0, 255, 0.147);
+        border: 1px solid rgba(0, 0, 255, 0.534);
+        border-radius: 5px;
+        position: absolute;
+    }
+}
+/* /Desktop Apps */
 
 /* -------------------------------------------------------------------------------------------------------------------- */
 
